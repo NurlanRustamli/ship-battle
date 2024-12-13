@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        //defining bomb number and other features
         int bombNumber = 25;
         short fiveTypeShip = 0;
         short fourTypeShip = 0;
@@ -59,7 +60,7 @@ public class Main {
                     bombNumber--;
                     map[x][y] = -11;
                 } else if (map[x][y] == -11) {
-                    System.out.println("Yeniden daxil edin evvel vurmusuz bu yeri");
+                    System.out.println("Please,enter coordinates again because you shot this location");
                 }
                 if (fiveTypeShip==5&&fourTypeShip==4&&threeTypeShip==6&&twoTypeShip==4){
                     System.out.println("You won");
@@ -83,21 +84,24 @@ public class Main {
             // Random starting position
             int colStart = (int) (Math.random() * 10);
             int rowStart = (int) (Math.random() * 10);
+            //defining horizontal or vertical
             boolean horizontal = Math.random() >= 0.5;
-            //<5 dise horizontal,>=5 dise vertical
+
 
             // Ensure the ship fits within the map
             if (rowStart + typeCount < map.length && colStart + typeCount < map[0].length && !horizontal) {
                 // Place the ship horizontally on the map
                 for (int i = 0; i < typeCount; i++) {
                     if (map[rowStart][colStart + i] == 0) {
-                        // Mark the ship on the map
+                        // for trial process
                         trial++;
                     }
                 }
                 if (trial == typeCount) {
                     for (int i = 0; i < typeCount; i++) {
+                        //locate ships on the map
                         map[rowStart][colStart + i] = typeCount;
+
                     }
                     break; // Exit the loop after placing the ship
 
@@ -108,13 +112,14 @@ public class Main {
                 // Place the ship vertically on the map
                 for (int i = 0; i < typeCount; i++) {
                     if (map[rowStart + i][colStart] == 0) {
-                        // Mark the ship on the map
+                        // for trial process
                         trial++;
                     }
 
                 }
                 if (trial == typeCount) {
                     for (int i = 0; i < typeCount; i++) {
+                        //locate ships on the map
                         map[rowStart + i][colStart] = typeCount;
                     }
                     break; // Exit the loop after placing the ship
