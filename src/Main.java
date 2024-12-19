@@ -107,6 +107,8 @@ public class Main {
 
                 } else {
                     continue;
+
+
                 }
             } else if (rowStart + typeCount < map.length && colStart + typeCount < map[0].length && horizontal) {
                 // Place the ship vertically on the map
